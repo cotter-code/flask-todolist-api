@@ -37,7 +37,7 @@ def login_required(f):
     return f(*args, **kwargs)
   return decorated_function
 ```
-Find the function definition for `validate_access_token` and `validate_id_token` in auth.py.
+Find the function definition for `validate_access_token` and `validate_id_token` in `auth.py`.
 
 ## Using the Middleware
 On the API routes that requirest login, do the following:
@@ -71,10 +71,12 @@ export COTTER_API_KEY_ID=<Your API KEY ID>
 ### DB Schema in FaunaDB
 
 Database Name: todolist
+
 Collections:
 - lists
 - todos
 - users
+
 Indexes:
 - list_by_user_and_tag
 - list_unique_tag
