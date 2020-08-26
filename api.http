@@ -36,7 +36,6 @@ GET http://localhost:1234/list/my-morning
 Authorization: Bearer <access_token>
 
 ### Update list name by id
-
 PUT http://localhost:1234/list/update/274822555824554509
 Authorization: Bearer <access_token>
 Content-Type: application/json
@@ -45,19 +44,19 @@ Content-Type: application/json
     "name": "Morning Tasks"
 }
 
-### delete list by id
-
+### Delete list by id
 DELETE http://localhost:1234/list/delete/274822555824554509
 Authorization: Bearer <access_token>
 
 ### Create a Task within a list
+### name = List name, task = Task name/description
 POST http://localhost:1234/todo/create
 Authorization: Bearer <access_token>
 Content-Type: application/json
 
 {
-    "name": "Morning Routine",    // List name
-    "task": "Greet your friends"  // Task name
+    "name": "Morning Routine",   
+    "task": "Greet your friends"
 }
 
 ### Update task set done = true or false by id
@@ -70,7 +69,6 @@ Content-Type: application/json
 }
 
 ### Update task name by id
-
 PUT http://localhost:1234/todo/update/task/274822869038400008
 Authorization: Bearer <access_token>
 Content-Type: application/json
@@ -80,6 +78,5 @@ Content-Type: application/json
 }
 
 ### Delete task by id
-
 DELETE http://localhost:1234/todo/delete/274822869038400008
 Authorization: Bearer <access_token>
