@@ -1,0 +1,85 @@
+# For Production, 
+# Change http://localhost:1234 to https://cottertodolist.herokuapp.com
+
+### Login or Register a user using Cotter's response
+### From the Python SDK
+POST http://localhost:1234/login_register
+Content-Type: application/json
+
+{
+    "email": "someone@gmail.com",
+    "oauth_token": {
+        "access_token": "eyJhbGciOiJF...",
+        "id_token": "eyJhbGciOiJFUzI...",
+        "refresh_token": "40011:ra78TcwB...",
+        "expires_in": 3600,
+        "token_type": "Bearer",
+        "auth_method": "OTP"
+    },
+}
+
+### Create a new Todo list
+POST http://localhost:1234/list/create
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+    "name": "Morning Routine"
+}
+
+### Show all lists
+GET http://localhost:1234/list
+Authorization: Bearer <access_token>
+
+### Show 1 list by slug = slugify(name)
+GET http://localhost:1234/list/my-morning
+Authorization: Bearer <access_token>
+
+### Update list name by id
+
+PUT http://localhost:1234/list/update/274822555824554509
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+    "name": "Morning Tasks"
+}
+
+### delete list by id
+
+DELETE http://localhost:1234/list/delete/274822555824554509
+Authorization: Bearer <access_token>
+
+### Create a Task within a list
+POST http://localhost:1234/todo/create
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+    "name": "Morning Routine",    // List name
+    "task": "Greet your friends"  // Task name
+}
+
+### Update task set done = true or false by id
+PUT http://localhost:1234/todo/update/done/274822869038400008
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+    "done": true
+}
+
+### Update task name by id
+
+PUT http://localhost:1234/todo/update/task/274822869038400008
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+    "task": "Greet your plants"
+}
+
+### Delete task by id
+
+DELETE http://localhost:1234/todo/delete/274822869038400008
+Authorization: Bearer <access_token>
