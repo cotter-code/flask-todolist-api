@@ -72,7 +72,6 @@ def login_register():
 
     # Return the user
     user_data = {
-      "oauth_token" : req["oauth_token"],
       "user_id": user_id
     }
     return user_data
