@@ -104,7 +104,8 @@ def get_lists():
     except faunadb.errors.BadRequest as err:
         abort(500, 'Something went wrong when getting lists: ' + str(err))
 
-    return json.dumps(resp)
+    listFormatted = list(map(lambda lst: {'id': lst["id"], 'name': lst["data"]["name"], "tasks": list(map(lambda task: {"id": task["id"], "task": task["data"]["task"], "done": task["data"]["done"]}, lst["todos"]))}, resp))
+    return json.dumps(listFormatted)
 
 # List by list name
 @app.route('/list/<tag>', methods=['GET'])
@@ -118,7 +119,8 @@ def get_list_by_name(tag):
     except faunadb.errors.BadRequest as err:
         abort(500, 'Something went wrong when getting list by name: ' + str(err))
 
-    return json.dumps(resp)
+    listFormatted = {'id': resp["id"], 'name': resp["data"]["name"], "tasks": list(map(lambda task: {"id": task["id"], "task": task["data"]["task"], "done": task["data"]["done"]}, resp["todos"]))}
+    return json.dumps(listFormatted)
 
 
 # Update list by id
