@@ -63,9 +63,7 @@ def create_list():
 ### Required Environment Variables:
 ```
 export FAUNA_DB_SECRET=<Your Fauna DB Secret>
-export COTTER_API_KEY_ID=<Your API KEY ID>
 ```
-- `COTTER_API_KEY_ID`: Obtain one from [Cotter's Dashboard](https://dev.cotter.app/)
 - `FAUNA_DB_SECRET`: Obtain one from [FaunaDB](https://fauna.com/)
 
 ### DB Schema in FaunaDB
