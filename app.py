@@ -51,8 +51,8 @@ def login_register():
     try:
       access_token_resp = validate_access_token(req["oauth_token"]["access_token"])
       id_token_resp = validate_id_token(req["oauth_token"]["id_token"])
-    except:
-      abort(401, "Invalid oauth tokens")
+    except Exception as err:
+      abort(401, "Invalid oauth tokens " + str(err))
     
     # Register or Login the user
     try:
